@@ -1,0 +1,38 @@
+---
+import { getDocNav } from '../data/nav';
+
+const nav = await getDocNav();
+const current = Astro.url.pathname.replace(/\/$/, '');
+---
+
+<nav class="text-sm">
+  {
+    nav.map((group) => (
+      <div class="mb-6">
+        <p class="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-base-content/45">
+          {group.section}
+        </p>
+        <ul class="space-y-0.5">
+          {group.items.map((item) => {
+            const href = `/docs/${item.slug}`;
+            const active = current === href;
+            return (
+              <li>
+                <a
+                  href={href}
+                  class={`block rounded-md px-3 py-1.5 transition-colors ${
+                    active
+                      ? 'bg-primary/10 font-semibold text-primary'
+                      : 'text-base-content/70 hover:bg-base-200 hover:text-base-content'
+                  }`}
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))
+  }
+</nav>

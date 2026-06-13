@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  {
+    title: 'Dual Authentication',
+    body: 'Sanctum token auth for native apps and cookie/session auth for SPAs — same controllers, one config. Password, OTP and OAuth out of the box.',
+    tag: 'Auth',
+  },
+  {
+    title: 'Passwordless OTP',
+    body: 'Email one-time passwords with swappable database or cache (Redis) drivers. New users auto-created and email auto-verified on first verify.',
+    tag: 'Auth',
+  },
+  {
+    title: 'Social / OAuth',
+    body: 'Google, GitHub, Facebook and Twitter via Socialite, plus account linking and email auto-link. Add a provider with a config + env change.',
+    tag: 'Auth',
+  },
+  {
+    title: 'Roles & Permissions',
+    body: 'Laratrust RBAC seeded from config, default role auto-assigned on register, and role/permission middleware wired into the JSON error envelope.',
+    tag: 'Access',
+  },
+  {
+    title: 'Standard API Envelope',
+    body: 'A base controller with response helpers plus a global exception → JSON renderer, so thrown errors and intentional responses share one schema.',
+    tag: 'API',
+  },
+  {
+    title: 'Configurable Security',
+    body: 'Per-endpoint named rate limits, a Password::defaults() policy chain, and an optional email-verification login gate — all toggled from config.',
+    tag: 'Security',
+  },
+  {
+    title: 'File Uploads with TTL',
+    body: 'Two-phase upload + claim/release with scheduled cleanup of unclaimed files. Works unchanged on the local disk or S3.',
+    tag: 'Storage',
+  },
+  {
+    title: 'Append-only Audit Log',
+    body: 'An audit_log() helper and Auditable trait that capture who did what, with redaction of sensitive keys and a daily retention prune.',
+    tag: 'Observability',
+  },
+  {
+    title: 'Dockerised Stack',
+    body: 'Multi-stage image with Caddy, PHP-FPM, queue and scheduler workers, Postgres and Redis. One image, dev and prod compose files.',
+    tag: 'Deploy',
+  },
+  {
+    title: 'Auto API Docs',
+    body: 'Scribe generates browsable API documentation straight from your PHPDoc annotations and route definitions.',
+    tag: 'DX',
+  },
+  {
+    title: 'Type-safe DTOs',
+    body: 'Spatie Laravel Data for structured, type-safe data transfer between layers instead of loose arrays.',
+    tag: 'DX',
+  },
+  {
+    title: 'AI-ready',
+    body: 'Laravel Boost MCP server plus shared agent rules for Claude, Cursor, Gemini and Copilot committed in the repo.',
+    tag: 'DX',
+  },
+];
+
+const stack = [
+  'Laravel 12',
+  'PHP 8.2+',
+  'Sanctum',
+  'Socialite',
+  'Laratrust',
+  'Spatie Laravel Data',
+  'Scribe',
+  'PHPUnit',
+  'Pint',
+  'Docker',
+  'Postgres',
+  'Redis',
+];
+---
+
+<BaseLayout title="Laravel API Boilerplate — Ship your API faster">
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-base-300">
+    <div
+      class="pointer-events-none absolute inset-0 -z-10 opacity-60"
+      style="background:radial-gradient(40rem 28rem at 70% -10%, color-mix(in oklab, var(--color-primary) 18%, transparent), transparent);"
+    >
+    </div>
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+      <div class="max-w-3xl">
+        <span class="badge badge-primary badge-outline">Laravel 12 · MIT licensed</span>
+        <h1 class="mt-5 text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+          Start your next API in minutes, not weeks.
+        </h1>
+        <p class="mt-6 text-lg text-base-content/70">
+          A robust Laravel 12 starter pre-wired with authentication, RBAC,
+          file uploads, auditing and Docker — every feature toggled from a
+          single config file. A self-hosted, scalable alternative to BaaS.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/docs/introduction" class="btn btn-primary">Get Started</a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-outline">View on GitHub</a>
+        </div>
+        <div class="mt-8">
+          <div class="mockup-code w-full max-w-xl bg-neutral text-neutral-content">
+            <pre data-prefix="$"><code>composer create-project laravel-api-boilerplate</code></pre>
+            <pre data-prefix="$"><code>composer run dev</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="border-b border-base-300 bg-base-200/40">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+      <div class="grid gap-10 lg:grid-cols-3">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight">Why another boilerplate?</h2>
+          <p class="mt-3 text-sm text-base-content/65">
+            BaaS platforms get you a prototype fast — until you outgrow their
+            limits or hit vendor lock-in.
+          </p>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="text-base-content/75">
+            With AI accelerating development, the edge of BaaS is shrinking.
+            Laravel gives you clean, maintainable syntax, native scalability
+            and full ownership of your stack. This boilerplate lets any
+            Laravel-familiar developer start a new API project with best
+            practices already in place — so you focus on features, not
+            plumbing. It's a starting point, not a framework: every
+            controller, mailable and default is meant to be edited.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight">Everything wired up</h2>
+      <p class="mt-3 text-base-content/65">
+        Production concerns solved once, documented per module, and
+        configurable without touching code.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((f) => (
+          <div class="card border border-base-300 bg-base-100 transition-colors hover:border-primary/50">
+            <div class="card-body gap-2 p-6">
+              <span class="badge badge-sm badge-ghost w-fit">{f.tag}</span>
+              <h3 class="card-title text-base">{f.title}</h3>
+              <p class="text-sm text-base-content/65">{f.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Quick start -->
+  <section class="border-y border-base-300 bg-base-200/40">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-2">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">Up and running in four steps</h2>
+          <p class="mt-3 text-base-content/65">
+            Clone, install, configure, migrate. Then read the per-module docs
+            and start building your domain.
+          </p>
+          <a href="/docs/installation" class="btn btn-primary mt-6">Installation guide</a>
+        </div>
+        <div class="mockup-code bg-neutral text-neutral-content">
+          <pre data-prefix="1"><code>git clone &lt;repo&gt; && cd laravel-api-boilerplate</code></pre>
+          <pre data-prefix="2"><code>composer install && npm install</code></pre>
+          <pre data-prefix="3"><code>cp .env.example .env && php artisan key:generate</code></pre>
+          <pre data-prefix="4"><code>php artisan migrate --seed && composer run dev</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+    <h2 class="text-center text-2xl font-bold tracking-tight">Built on a proven stack</h2>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      {
+        stack.map((s) => (
+          <span class="badge badge-lg border-base-300 bg-base-100">{s}</span>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="border-t border-base-300 bg-primary text-primary-content">
+    <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-16 sm:px-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h2 class="text-2xl font-bold">Ready to build your API?</h2>
+        <p class="mt-1 text-primary-content/80">Read the docs and ship today.</p>
+      </div>
+      <a href="/docs/introduction" class="btn btn-neutral">Open the docs</a>
+    </div>
+  </section>
+</BaseLayout>
