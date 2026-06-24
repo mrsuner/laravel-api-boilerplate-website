@@ -1,8 +1,8 @@
 ---
 title: Internal Admin Module
 description: A self-contained, IP- and token-gated management API for internal tooling.
-section: API Surface
-order: 5
+section: Internal Admin
+order: 1
 ---
 
 # Internal Admin Module

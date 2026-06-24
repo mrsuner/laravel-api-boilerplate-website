@@ -62,7 +62,8 @@ order: number           # sort within the section (ascending)
 2. `Authentication`
 3. `API Surface`
 4. `Operations`
-5. `Project`
+5. `Internal Admin`
+6. `Project`
 
 A section only renders if it has at least one doc. To add a new section,
 append it to `SECTION_ORDER` (order in that array = order in the sidebar).
@@ -108,8 +109,9 @@ curl -s -o /dev/null -w "%{http_code}\n" http://localhost:4321/docs/<slug>/
 |---|---|
 | Getting Started | introduction, installation, configuration |
 | Authentication | authentication, otp, social-auth, email-verification, password-policy |
-| API Surface | api-responses, rate-limiting, rbac, files, admin |
+| API Surface | api-responses, rate-limiting, rbac, files |
 | Operations | notifications, audit, docker |
+| Internal Admin | admin |
 | Project | roadmap |
 
 Source docs in the boilerplate that map 1:1 to the above:
