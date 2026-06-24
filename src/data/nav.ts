@@ -44,6 +44,8 @@ export type PackageMeta = {
   slug: string; // e.g. "laravel-coupon"
   name: string; // display name
   tagline: string;
+  badge: string; // single-letter badge shown in the sidebar / cards
+  repo: string; // GitHub URL
 };
 
 export const PACKAGES: PackageMeta[] = [
@@ -51,6 +53,15 @@ export const PACKAGES: PackageMeta[] = [
     slug: 'laravel-coupon',
     name: 'laravel-coupon',
     tagline: 'Coupon generation, validation & redemption — decoupled from billing.',
+    badge: 'C',
+    repo: 'https://github.com/mrsuner/laravel-coupon',
+  },
+  {
+    slug: 'laravel-api-keys',
+    name: 'laravel-api-keys',
+    tagline: 'Developer API keys — prefix-routed, rotatable, rate-limited, layered over Sanctum.',
+    badge: 'K',
+    repo: 'https://github.com/mrsuner/laravel-api-boilerplate-apikey',
   },
 ];
 

@@ -69,21 +69,6 @@ const features = [
   },
 ];
 
-const couponHighlights = [
-  {
-    title: 'One-event integration',
-    body: 'Listen for CouponRedeemed and apply the effect — the package never touches your billing stack.',
-  },
-  {
-    title: 'Admin API included',
-    body: 'CRUD, bulk generation and redemption lists under /internal/admin/v1, gated by the admin stack.',
-  },
-  {
-    title: 'Standalone or boilerplate',
-    body: 'Auto-detects the boilerplate admin stack, or falls back to Sanctum on any Laravel app.',
-  },
-];
-
 const stack = [
   'Laravel 12',
   'PHP 8.2+',
@@ -199,8 +184,8 @@ const stack = [
         </p>
       </div>
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-[1.1fr_minmax(0,1fr)]">
-        <!-- Featured package -->
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        <!-- laravel-coupon -->
         <div class="card border border-base-300 bg-base-100">
           <div class="card-body gap-4 p-7">
             <div class="flex items-center gap-3">
@@ -227,17 +212,34 @@ const stack = [
           </div>
         </div>
 
-        <!-- Highlights -->
-        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-          {
-            couponHighlights.map((h) => (
-              <li class="rounded-lg border border-base-300 bg-base-100 p-4">
-                <p class="text-sm font-semibold">{h.title}</p>
-                <p class="mt-1 text-sm text-base-content/60">{h.body}</p>
-              </li>
-            ))
-          }
-        </ul>
+        <!-- laravel-api-keys -->
+        <div class="card border border-base-300 bg-base-100">
+          <div class="card-body gap-4 p-7">
+            <div class="flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-lg bg-primary text-primary-content font-black">K</span>
+              <div>
+                <h3 class="card-title text-lg">laravel-api-keys</h3>
+                <p class="text-sm text-base-content/60">Developer API keys, layered over Sanctum.</p>
+              </div>
+            </div>
+            <p class="text-sm text-base-content/70">
+              Stripe-style, prefix-routed keys
+              (<code class="rounded bg-base-200 px-1.5 py-0.5 text-xs">sk_live_…</code>)
+              with rotation overlap windows, per-key rate limits, abilities and
+              async usage tracking — resolved into the existing
+              <code class="rounded bg-base-200 px-1.5 py-0.5 text-xs">auth:sanctum</code>
+              stack, so your routes never change.
+            </p>
+            <div class="mt-1 flex flex-wrap gap-2">
+              <a href="/packages/laravel-api-keys/introduction" class="btn btn-primary btn-sm">Read the docs</a>
+              <a
+                href="https://github.com/mrsuner/laravel-api-boilerplate-apikey"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

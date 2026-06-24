@@ -18,7 +18,7 @@ const current = Astro.url.pathname.replace(/\/$/, '');
     </p>
     <div class="mt-1 flex items-center gap-2">
       <span class="grid h-6 w-6 place-items-center rounded-md bg-primary text-primary-content text-xs font-black">
-        C
+        {meta?.badge ?? meta?.name?.charAt(0).toUpperCase() ?? '?'}
       </span>
       <span class="font-bold tracking-tight">{meta?.name ?? pkg}</span>
     </div>
