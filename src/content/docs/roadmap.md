@@ -30,6 +30,8 @@ without ripping code out.
 - File upload module with TTL cleanup
 - Audit / activity log with redaction and retention
 - Queued auth-event email notifications
+- Internal admin module — IP- and token-gated management API (users, roles,
+  audit, health, runtime config)
 - Dockerised dev + prod stack
 - Consolidated AI agent rules
 
@@ -48,7 +50,8 @@ without ripping code out.
 - Notifications expansion: database channel + per-user preferences
 - Soft deletes & restore endpoints
 - i18n scaffolding (`en`, `zh_TW`) with locale detection middleware
-- `/health` endpoint (DB, cache, queue, mail checks)
+- Public `/health` endpoint (an admin-scoped one already ships with the
+  [admin module](/docs/admin))
 - CORS hardening, request-id middleware, request/response logging
 
 ## Planned — Tier 3 & 4 (DX & docs)

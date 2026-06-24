@@ -102,13 +102,13 @@ Quick smoke check after a build (preview running on :4321):
 curl -s -o /dev/null -w "%{http_code}\n" http://localhost:4321/docs/<slug>/
 ```
 
-## Docs currently shipped (16)
+## Docs currently shipped (17)
 
 | Section | Slugs (in order) |
 |---|---|
 | Getting Started | introduction, installation, configuration |
 | Authentication | authentication, otp, social-auth, email-verification, password-policy |
-| API Surface | api-responses, rate-limiting, rbac, files |
+| API Surface | api-responses, rate-limiting, rbac, files, admin |
 | Operations | notifications, audit, docker |
 | Project | roadmap |
 
