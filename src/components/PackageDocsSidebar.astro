@@ -1,0 +1,59 @@
+---
+import { getPackageNav, PACKAGES } from '../data/nav';
+
+interface Props {
+  pkg: string;
+}
+
+const { pkg } = Astro.props;
+const meta = PACKAGES.find((p) => p.slug === pkg);
+const nav = await getPackageNav(pkg);
+const current = Astro.url.pathname.replace(/\/$/, '');
+---
+
+<nav class="text-sm">
+  <div class="mb-6">
+    <p class="text-[0.6rem] font-semibold uppercase tracking-wider text-base-content/40">
+      Official package
+    </p>
+    <div class="mt-1 flex items-center gap-2">
+      <span class="grid h-6 w-6 place-items-center rounded-md bg-primary text-primary-content text-xs font-black">
+        C
+      </span>
+      <span class="font-bold tracking-tight">{meta?.name ?? pkg}</span>
+    </div>
+    <a href="/docs/introduction" class="mt-2 inline-block text-xs text-base-content/50 hover:text-primary">
+      ← Back to boilerplate docs
+    </a>
+  </div>
+
+  {
+    nav.map((group) => (
+      <div class="mb-6">
+        <p class="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-base-content/45">
+          {group.section}
+        </p>
+        <ul class="space-y-0.5">
+          {group.items.map((item) => {
+            const href = `/packages/${item.slug}`;
+            const active = current === href;
+            return (
+              <li>
+                <a
+                  href={href}
+                  class={`block rounded-md px-3 py-1.5 transition-colors ${
+                    active
+                      ? 'bg-primary/10 font-semibold text-primary'
+                      : 'text-base-content/70 hover:bg-base-200 hover:text-base-content'
+                  }`}
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))
+  }
+</nav>

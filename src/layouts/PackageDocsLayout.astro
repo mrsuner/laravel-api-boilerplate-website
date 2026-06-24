@@ -1,0 +1,75 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PackageDocsSidebar from '../components/PackageDocsSidebar.astro';
+import { getPackageNav, PACKAGES } from '../data/nav';
+
+interface Props {
+  title: string;
+  description: string;
+  pkg: string;
+}
+
+const { title, description, pkg } = Astro.props;
+const meta = PACKAGES.find((p) => p.slug === pkg);
+
+const nav = await getPackageNav(pkg);
+const flat = nav.flatMap((g) => g.items);
+const current = Astro.url.pathname.replace(/\/$/, '');
+const idx = flat.findIndex((d) => `/packages/${d.slug}` === current);
+const prev = idx > 0 ? flat[idx - 1] : null;
+const next = idx >= 0 && idx < flat.length - 1 ? flat[idx + 1] : null;
+---
+
+<BaseLayout title={`${title} — ${meta?.name ?? pkg}`} description={description} hideFooter>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-10">
+      <!-- Sidebar -->
+      <aside class="hidden lg:block">
+        <div class="sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-8 pr-2">
+          <PackageDocsSidebar pkg={pkg} />
+        </div>
+      </aside>
+
+      <!-- Mobile nav -->
+      <div class="lg:hidden">
+        <div class="collapse-arrow collapse mt-4 border border-base-300 bg-base-100">
+          <input type="checkbox" />
+          <div class="collapse-title text-sm font-semibold">{meta?.name ?? pkg} menu</div>
+          <div class="collapse-content">
+            <PackageDocsSidebar pkg={pkg} />
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <article class="min-w-0 py-8 lg:py-12">
+        <div class="prose mx-auto" style="max-width: var(--doc-max);">
+          <slot />
+        </div>
+
+        <div class="mx-auto mt-14" style="max-width: var(--doc-max);">
+          <div class="grid gap-4 border-t border-base-300 pt-6 sm:grid-cols-2">
+            {
+              prev ? (
+                <a href={`/packages/${prev.slug}`} class="rounded-lg border border-base-300 p-4 transition-colors hover:border-primary">
+                  <div class="text-xs text-base-content/50">Previous</div>
+                  <div class="mt-1 font-semibold text-primary">{prev.title}</div>
+                </a>
+              ) : (
+                <span />
+              )
+            }
+            {
+              next && (
+                <a href={`/packages/${next.slug}`} class="rounded-lg border border-base-300 p-4 text-right transition-colors hover:border-primary sm:col-start-2">
+                  <div class="text-xs text-base-content/50">Next</div>
+                  <div class="mt-1 font-semibold text-primary">{next.title}</div>
+                </a>
+              )
+            }
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

@@ -69,6 +69,21 @@ const features = [
   },
 ];
 
+const couponHighlights = [
+  {
+    title: 'One-event integration',
+    body: 'Listen for CouponRedeemed and apply the effect — the package never touches your billing stack.',
+  },
+  {
+    title: 'Admin API included',
+    body: 'CRUD, bulk generation and redemption lists under /internal/admin/v1, gated by the admin stack.',
+  },
+  {
+    title: 'Standalone or boilerplate',
+    body: 'Auto-detects the boilerplate admin stack, or falls back to Sanctum on any Laravel app.',
+  },
+];
+
 const stack = [
   'Laravel 12',
   'PHP 8.2+',
@@ -169,6 +184,61 @@ const stack = [
           </div>
         ))
       }
+    </div>
+  </section>
+
+  <!-- Official packages -->
+  <section class="border-t border-base-300 bg-base-100">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+      <div class="max-w-2xl">
+        <span class="badge badge-primary badge-outline">Official packages</span>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight">Extend it with first-party packages</h2>
+        <p class="mt-3 text-base-content/65">
+          Drop-in packages that follow the same conventions and auto-wire into
+          the boilerplate's admin stack — and install on any Laravel app too.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-[1.1fr_minmax(0,1fr)]">
+        <!-- Featured package -->
+        <div class="card border border-base-300 bg-base-100">
+          <div class="card-body gap-4 p-7">
+            <div class="flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-lg bg-primary text-primary-content font-black">C</span>
+              <div>
+                <h3 class="card-title text-lg">laravel-coupon</h3>
+                <p class="text-sm text-base-content/60">Coupon lifecycle, decoupled from billing.</p>
+              </div>
+            </div>
+            <p class="text-sm text-base-content/70">
+              Generation, validation and redemption recording. The package fires a
+              single <code class="rounded bg-base-200 px-1.5 py-0.5 text-xs">CouponRedeemed</code>
+              event and stops — your app listens and applies the effect, so it
+              never depends on Stripe, Paddle or your billing models.
+            </p>
+            <div class="mt-1 flex flex-wrap gap-2">
+              <a href="/packages/laravel-coupon/introduction" class="btn btn-primary btn-sm">Read the docs</a>
+              <a
+                href="https://github.com/mrsuner/laravel-coupon"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          {
+            couponHighlights.map((h) => (
+              <li class="rounded-lg border border-base-300 bg-base-100 p-4">
+                <p class="text-sm font-semibold">{h.title}</p>
+                <p class="mt-1 text-sm text-base-content/60">{h.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </section>
 
