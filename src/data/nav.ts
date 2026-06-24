@@ -5,6 +5,7 @@ export const SECTION_ORDER = [
   'Authentication',
   'API Surface',
   'Operations',
+  'Internal Admin',
   'Project',
 ] as const;
 
