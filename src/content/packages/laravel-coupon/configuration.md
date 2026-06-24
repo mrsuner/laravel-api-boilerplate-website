@@ -34,15 +34,12 @@ Override if these collide with your schema.
 ],
 ```
 
-## Redeemable morph map
+## Redeemable morph maps
 
-If your app registers a morph map, set the alias for your redeemable model
-(e.g. `User`). `null` uses the fully-qualified class name (default Laravel
-behaviour).
-
-```php
-'redeemable_morph_map' => null,
-```
+The package follows Laravel's native polymorphic type handling. By default,
+redemptions store the redeemable model's fully-qualified class name. If you
+want aliases instead, register them in the host app with
+`Relation::morphMap()` or `Relation::enforceMorphMap()`.
 
 ## Admin route wiring
 
@@ -62,8 +59,10 @@ boot:
 
 - If the boilerplate's `App\Http\Middleware\InternalIpWhitelist` class exists,
   it uses the **full boilerplate admin stack**:
-  `throttle:60,1` + `InternalIpWhitelist` + `auth:sanctum` + `ability:admin`.
-- Otherwise (a plain Laravel app) it falls back to `['auth:sanctum']`.
+  `throttle:60,1` + `InternalIpWhitelist` + `auth:sanctum` + `ability:admin`,
+  plus `EnsureAdminAccess` when available.
+- Otherwise (a plain Laravel app) it falls back to
+  `['auth:sanctum', 'ability:admin']`.
 
 Provide an explicit array to take full control. The package always appends the
 framework's route-model-binding middleware automatically, so implicit binding
