@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import PackageDocsLayout from '../../layouts/PackageDocsLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('packages');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+// Entry ids are "<package>/<page>"; the package is the first path segment.
+const pkg = entry.id.split('/')[0];
+---
+
+<PackageDocsLayout title={entry.data.title} description={entry.data.description} pkg={pkg}>
+  <Content />
+</PackageDocsLayout>

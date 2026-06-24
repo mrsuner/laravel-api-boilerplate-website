@@ -1,6 +1,7 @@
 ---
 const { pathname } = Astro.url;
 const isDocs = pathname.startsWith('/docs');
+const isPackages = pathname.startsWith('/packages');
 ---
 
 <header class="sticky top-0 z-50 border-b border-base-300 bg-base-100/85 backdrop-blur">
@@ -20,6 +21,10 @@ const isDocs = pathname.startsWith('/docs');
         href="/docs/introduction"
         class={`btn btn-ghost btn-sm ${isDocs ? 'text-primary' : ''}`}
       >Docs</a>
+      <a
+        href="/packages/laravel-coupon/introduction"
+        class={`btn btn-ghost btn-sm ${isPackages ? 'text-primary' : ''}`}
+      >Packages</a>
       <a
         href="https://github.com"
         target="_blank"
