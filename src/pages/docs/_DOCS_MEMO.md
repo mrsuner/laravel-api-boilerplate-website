@@ -11,7 +11,7 @@ Marketing + documentation site for the **Laravel API Boilerplate**
 
 - **Location:** `laravel-api-starter/website/` (standalone, sibling to the
   boilerplate — not inside it).
-- **Stack:** Astro 5 + Tailwind v4 (`@tailwindcss/vite`) + DaisyUI v5.
+- **Stack:** Astro 7 + Tailwind v4 (`@tailwindcss/vite`) + DaisyUI v5.
 - **Language:** English. Design: clean light / docs-oriented.
 - **Code highlighting:** Shiki `github-light` (set in `astro.config.mjs`).
 - Docs content is **rewritten for the web**, not copied verbatim from the

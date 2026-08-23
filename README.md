@@ -1,14 +1,14 @@
 # Laravel API Boilerplate — Website
 
-Marketing and documentation site for the **[Laravel API Boilerplate](../laravel-api-boilerplate/)**, a production-ready Laravel 12 starter for building RESTful APIs.
+Marketing and documentation site for the **[Laravel API Boilerplate](../laravel-api-boilerplate/)**, a production-ready Laravel 13 starter for building RESTful APIs.
 
-Built with **Astro 5**, **Tailwind CSS v4**, and **DaisyUI v5**. The landing page sells the boilerplate; the `/docs` section is a sidebar-driven documentation system rendered from Markdown.
+Built with **Astro 7**, **Tailwind CSS v4**, and **DaisyUI v5**. The landing page sells the boilerplate; the `/docs` section is a sidebar-driven documentation system rendered from Markdown.
 
 ## Tech stack
 
 | Concern | Choice |
 |---|---|
-| Framework | [Astro 5](https://astro.build) (static output) |
+| Framework | [Astro 7](https://astro.build) (static output) |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com) via `@tailwindcss/vite` |
 | Components | [DaisyUI v5](https://daisyui.com) |
 | Code highlighting | Shiki (`github-light` theme, set in `astro.config.mjs`) |

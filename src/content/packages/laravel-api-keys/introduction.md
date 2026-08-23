@@ -14,7 +14,7 @@ Sanctum** rather than replacing it.
 
 A resolved key authenticates the request through the existing `auth:sanctum`
 stack, so every route, policy and response envelope keeps working unchanged. The
-package runs standalone on any Laravel 11/12 app and auto-wires into the Laravel
+package runs standalone on any Laravel 12/13 app and auto-wires into the Laravel
 API Boilerplate when present.
 
 ## Why not just Sanctum tokens?

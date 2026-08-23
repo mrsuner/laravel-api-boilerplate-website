@@ -72,6 +72,6 @@ if you need database / Slack / SMS channels.
    }
    ```
 
-Listeners in `app/Listeners/` are auto-discovered in Laravel 12 — no manual
+Listeners in `app/Listeners/` are auto-discovered by Laravel — no manual
 registration. Every listener implements `ShouldQueue`; run a queue worker
 in production (`QUEUE_CONNECTION=sync` runs them inline in tests).

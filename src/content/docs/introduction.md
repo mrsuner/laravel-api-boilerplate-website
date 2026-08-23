@@ -8,7 +8,7 @@ order: 1
 # Introduction
 
 The **Laravel API Boilerplate** is a production-ready starter template for
-building RESTful APIs with Laravel 12. It comes pre-wired with the things
+building RESTful APIs with Laravel 13. It comes pre-wired with the things
 every real API eventually needs — authentication, roles and permissions,
 file uploads, auditing, rate limiting and a Docker stack — so you can skip
 the plumbing and start on your domain.
