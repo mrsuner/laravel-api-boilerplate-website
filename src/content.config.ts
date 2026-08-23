@@ -23,4 +23,17 @@ const packages = defineCollection({
   }),
 });
 
-export const collections = { docs, packages };
+const changelog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/changelog' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    releasedAt: z.coerce.date(),
+    type: z.enum(['Release', 'Maintenance', 'Security', 'Documentation']),
+    projects: z.array(z.string()).min(1),
+    requiresAttention: z.boolean().default(false),
+    version: z.string().optional(),
+  }),
+});
+
+export const collections = { changelog, docs, packages };

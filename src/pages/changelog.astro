@@ -1,0 +1,155 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const entries = (await getCollection('changelog')).sort(
+  (a, b) => b.data.releasedAt.getTime() - a.data.releasedAt.getTime(),
+);
+
+const renderedEntries = await Promise.all(
+  entries.map(async (entry) => ({
+    ...entry,
+    Content: (await render(entry)).Content,
+  })),
+);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', {
+    day: '2-digit',
+    month: 'short',
+    timeZone: 'UTC',
+    year: 'numeric',
+  }).format(date);
+
+const latest = entries[0];
+---
+
+<BaseLayout
+  title="Changelog | Laravel API Boilerplate"
+  description="Framework upgrades, security maintenance, compatibility changes, and deployment notes for Laravel API Boilerplate."
+>
+  <section class="border-b border-base-300 bg-base-200/40">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(18rem,0.7fr)] lg:items-end lg:py-20">
+      <div class="max-w-3xl">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Project changelog</p>
+        <h1 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+          Every meaningful change, recorded.
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-base-content/65">
+          Framework, security, compatibility, and deployment notes for the boilerplate and packages.
+        </p>
+      </div>
+
+      <aside class="rounded-lg border border-base-300 bg-base-100 p-5" aria-label="Current project baseline">
+        <h2 class="text-sm font-bold">Current baseline</h2>
+        <dl class="mt-4 grid grid-cols-2 gap-x-5 gap-y-4 text-sm">
+          <div>
+            <dt class="text-base-content/70">Framework</dt>
+            <dd class="mt-1 font-mono font-semibold">Laravel 13</dd>
+          </div>
+          <div>
+            <dt class="text-base-content/70">Runtime</dt>
+            <dd class="mt-1 font-mono font-semibold">PHP 8.3+</dd>
+          </div>
+          <div>
+            <dt class="text-base-content/70">Package support</dt>
+            <dd class="mt-1 font-mono font-semibold">Laravel 12/13</dd>
+          </div>
+          <div>
+            <dt class="text-base-content/70">Latest update</dt>
+            <dd class="mt-1 font-mono font-semibold">
+              {latest ? formatDate(latest.data.releasedAt) : 'No entries'}
+            </dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-20">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-bold tracking-tight">Maintenance log</h2>
+      <p class="mt-2 text-base-content/60">
+        Newest entries appear first. Each record includes operational impact and verification notes.
+      </p>
+    </div>
+
+    {
+      renderedEntries.length > 0 ? (
+        <div class="mt-12 space-y-12">
+          {renderedEntries.map((entry) => (
+            <article
+              id={entry.id}
+              class="scroll-mt-24 grid gap-5 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-10"
+            >
+              <header class="md:pt-1">
+                <time
+                  datetime={entry.data.releasedAt.toISOString()}
+                  class="font-mono text-sm font-semibold text-base-content/70"
+                >
+                  {formatDate(entry.data.releasedAt)}
+                </time>
+                {entry.data.version && (
+                  <p class="mt-2 font-mono text-xs text-base-content/70">Release {entry.data.version}</p>
+                )}
+              </header>
+
+              <div class="rounded-lg border border-base-300 bg-base-100 p-6 sm:p-8">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="badge badge-primary badge-outline badge-sm">{entry.data.type}</span>
+                  {entry.data.requiresAttention && (
+                    <span class="badge badge-sm border-warning/60 bg-warning/15 text-base-content">Deployment impact</span>
+                  )}
+                </div>
+
+                <h3 class="mt-4 text-2xl font-extrabold tracking-tight">{entry.data.title}</h3>
+                <p class="mt-3 max-w-3xl leading-relaxed text-base-content/65">
+                  {entry.data.description}
+                </p>
+
+                <ul class="mt-5 flex flex-wrap gap-2" aria-label="Affected projects">
+                  {entry.data.projects.map((project) => (
+                    <li class="rounded-md bg-base-200 px-2.5 py-1 font-mono text-xs text-base-content/65">
+                      {project}
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="prose changelog-prose mt-8 max-w-none border-t border-base-300 pt-7">
+                  <entry.Content />
+                </div>
+
+                <a
+                  class="mt-8 inline-flex text-sm font-semibold text-primary underline decoration-primary/35 underline-offset-4 hover:decoration-primary"
+                  href={`#${entry.id}`}
+                >
+                  Permanent link
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="mt-12 rounded-lg border border-dashed border-base-300 px-6 py-14 text-center">
+          <h3 class="text-lg font-bold">No changelog entries yet</h3>
+          <p class="mt-2 text-sm text-base-content/60">The first maintenance update will appear here.</p>
+        </div>
+      )
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .changelog-prose :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .changelog-prose :global(blockquote) {
+    border-radius: 0.5rem;
+    border-left-width: 0;
+    background: color-mix(in oklab, var(--color-warning) 12%, transparent);
+    padding: 1rem 1.1rem;
+    color: var(--color-base-content);
+    font-style: normal;
+  }
+</style>

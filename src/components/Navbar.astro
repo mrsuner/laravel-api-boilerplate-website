@@ -1,7 +1,9 @@
 ---
 const { pathname } = Astro.url;
+const isHome = pathname === '/';
 const isDocs = pathname.startsWith('/docs');
 const isPackages = pathname.startsWith('/packages');
+const isChangelog = pathname.startsWith('/changelog');
 ---
 
 <header class="sticky top-0 z-50 border-b border-base-300 bg-base-100/85 backdrop-blur">
@@ -15,7 +17,7 @@ const isPackages = pathname.startsWith('/packages');
     <nav class="ml-auto flex items-center gap-1 text-sm font-medium">
       <a
         href="/"
-        class={`btn btn-ghost btn-sm ${!isDocs ? 'text-primary' : ''}`}
+        class={`btn btn-ghost btn-sm ${isHome ? 'text-primary' : ''}`}
       >Home</a>
       <a
         href="/docs/introduction"
@@ -25,6 +27,10 @@ const isPackages = pathname.startsWith('/packages');
         href="/packages"
         class={`btn btn-ghost btn-sm ${isPackages ? 'text-primary' : ''}`}
       >Packages</a>
+      <a
+        href="/changelog"
+        class={`btn btn-ghost btn-sm hidden md:inline-flex ${isChangelog ? 'text-primary' : ''}`}
+      >Changelog</a>
       <a
         href="https://github.com"
         target="_blank"

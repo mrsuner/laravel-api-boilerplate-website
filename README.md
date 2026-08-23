@@ -39,6 +39,7 @@ website/
   src/
     content.config.ts         # `docs` collection (glob loader + Zod schema)
     content/docs/*.md         # all documentation pages (the real content)
+    content/changelog/*.md    # dated maintenance and release entries
     data/nav.ts               # SECTION_ORDER + getDocNav() sidebar builder
     layouts/
       BaseLayout.astro        # html shell, Navbar + Footer
@@ -49,6 +50,7 @@ website/
       DocsSidebar.astro
     pages/
       index.astro             # landing page
+      changelog.astro         # reverse-chronological maintenance log
       docs/index.astro        # redirect -> /docs/introduction
       docs/[...slug].astro    # renders every entry in content/docs
     styles/global.css         # Tailwind import, DaisyUI plugin, .prose styles
