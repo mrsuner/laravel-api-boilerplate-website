@@ -8,9 +8,9 @@ order: 1
 # Admin API
 
 The package mounts a management API under `/internal/admin/v1/`, behind the
-[boilerplate admin stack](/docs/admin) when it's present (or a
+[boilerplate admin stack](../../../docs/admin) when it's present (or a
 Sanctum-authenticated stack on a plain Laravel app — see
-[Configuration](/packages/laravel-coupon/configuration)). No routes need to be
+[Configuration](./configuration)). No routes need to be
 added by hand.
 
 ## Endpoints
@@ -30,7 +30,7 @@ All paths are prefixed with `/internal/admin/v1`.
 | GET | `/coupons/{coupon}/redemptions` | `admin.coupons.redemptions` | Redemptions for one coupon |
 | GET | `/coupon-redemptions` | `admin.coupon-redemptions.index` | Global redemption list |
 
-Responses use the standard [API envelope](/docs/api-responses); paginated lists
+Responses use the standard [API envelope](../../../docs/api-responses); paginated lists
 return the `{ data, meta, links }` shape.
 
 ## Create a coupon
@@ -66,7 +66,7 @@ keep the payload small).
 
 - **`type` and `value` are immutable** after creation. `PATCH` only accepts
   `name`, `is_active` and `restrictions` — this preserves the integrity of the
-  redemption [snapshot](/packages/laravel-coupon/installation).
+  redemption [snapshot](./installation).
 - **Deletion is soft.** Deleting a coupon that has redemptions requires
   `?force=true`; without it the endpoint returns `422`. Redemption history is
   always preserved.

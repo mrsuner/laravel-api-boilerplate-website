@@ -39,7 +39,7 @@ Sanctum's own prefix-less tokens always fall through untouched.
 ```
 
 This is the global default applied to every key. A key may override it with its
-own `rate_limit` column — see [Authentication](/packages/laravel-api-keys/authentication).
+own `rate_limit` column — see [Authentication](./authentication).
 
 ## Usage logging
 
@@ -53,7 +53,7 @@ own `rate_limit` column — see [Authentication](/packages/laravel-api-keys/auth
 
 When `enabled` is false, only the aggregate counters on the key row are updated
 and no per-request rows are written. `retention_days` is honoured by the
-[`api-keys:prune`](/packages/laravel-api-keys/user-api) command. The async
+[`api-keys:prune`](./user-api) command. The async
 tracking job runs on the configured `queue`.
 
 ## Limits
@@ -91,4 +91,4 @@ any Laravel app. Provide an explicit array to take full control.
 The admin routes also respect the host's `boilerplate.admin.enabled` master
 switch when defined.
 
-Continue with [Authenticating requests](/packages/laravel-api-keys/authentication).
+Continue with [Authenticating requests](./authentication).

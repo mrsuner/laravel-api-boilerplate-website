@@ -4,6 +4,8 @@ Marketing and documentation site for the **[Laravel API Boilerplate](../laravel-
 
 Built with **Astro 7**, **Tailwind CSS v4**, and **DaisyUI v5**. The landing page sells the boilerplate; the `/docs` section is a sidebar-driven documentation system rendered from Markdown.
 
+Production: <https://mrsuner.github.io/laravel-api-boilerplate-website/>
+
 ## Tech stack
 
 | Concern | Choice |
@@ -28,6 +30,7 @@ npm run dev        # start the dev server at http://localhost:4321
 |---|---|
 | `npm run dev` | Start the local dev server with HMR |
 | `npm run build` | Build the production site to `dist/` |
+| `npm run check:links` | Verify built internal links resolve under the GitHub Pages base path |
 | `npm run preview` | Serve the production build locally |
 | `npm run astro` | Run the Astro CLI directly |
 
@@ -107,12 +110,8 @@ append it to `SECTION_ORDER` (array order = sidebar order).
 npm run build      # outputs static site to dist/
 ```
 
-The output in `dist/` is fully static and can be hosted on any static host
-(Netlify, Vercel, Cloudflare Pages, GitHub Pages, etc.).
-
-> Before deploying, update the placeholder `site` URL in `astro.config.mjs` and
-> the GitHub links in `Navbar.astro` / `Footer.astro`.
+The output in `dist/` is fully static. Pushes to `main` build, validate, and deploy the site to GitHub Pages through `.github/workflows/build.yml`.
 
 ## License
 
-MIT
+[MIT](LICENSE)

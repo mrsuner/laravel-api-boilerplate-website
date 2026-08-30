@@ -48,7 +48,7 @@ For both `app` and `web`:
 | DELETE | `/social/{provider}/unlink` | Yes | Unlink. |
 
 All redirect/callback/link endpoints share the `auth-social`
-[rate limiter](/docs/rate-limiting).
+[rate limiter](./rate-limiting).
 
 ## The flow
 

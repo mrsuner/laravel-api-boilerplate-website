@@ -76,4 +76,4 @@ ambiguity in screenshots.
 - User-facing and admin HTTP APIs.
 - `api-keys:prune` scheduled command for expiry and log retention.
 
-Continue with [Installation](/packages/laravel-api-keys/installation).
+Continue with [Installation](./installation).

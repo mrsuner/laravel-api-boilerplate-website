@@ -23,12 +23,12 @@ the behaviour and config are identical.
 
 | Topic | Page |
 |---|---|
-| Passwordless email codes | [OTP](/docs/otp) |
-| OAuth / social login | [Social Auth](/docs/social-auth) |
-| Signed-URL email verification | [Email Verification](/docs/email-verification) |
-| Strong-password rules | [Password Policy](/docs/password-policy) |
-| Brute-force throttling | [Rate Limiting](/docs/rate-limiting) |
-| Roles & permissions | [RBAC](/docs/rbac) |
+| Passwordless email codes | [OTP](./otp) |
+| OAuth / social login | [Social Auth](./social-auth) |
+| Signed-URL email verification | [Email Verification](./email-verification) |
+| Strong-password rules | [Password Policy](./password-policy) |
+| Brute-force throttling | [Rate Limiting](./rate-limiting) |
+| Roles & permissions | [RBAC](./rbac) |
 
 ## Route reference
 
@@ -139,9 +139,9 @@ const me = await fetch('/api/v1/me', { credentials: 'include' });
 | Sanctum tokens | Hashed in the database |
 | OAuth tokens | Encrypted at rest |
 | Inactive accounts | Login blocked when `is_active = false` |
-| Brute force | Per-endpoint throttles ([rate limiting](/docs/rate-limiting)) |
-| Weak passwords | `Password::defaults()` ([password policy](/docs/password-policy)) |
-| Email ownership | [Email verification](/docs/email-verification) — required-for-login is a flag |
+| Brute force | Per-endpoint throttles ([rate limiting](./rate-limiting)) |
+| Weak passwords | `Password::defaults()` ([password policy](./password-policy)) |
+| Email ownership | [Email verification](./email-verification) — required-for-login is a flag |
 
 ## Customising
 

@@ -24,17 +24,17 @@ This means:
   regardless of its billing stack.
 
 What connects the package to your business logic is **one event class**
-([`CouponRedeemed`](/packages/laravel-coupon/redeeming)) and **one public
-service** ([`CouponService`](/packages/laravel-coupon/coupon-service)).
+([`CouponRedeemed`](./redeeming)) and **one public
+service** ([`CouponService`](./coupon-service)).
 Everything else is internal.
 
 ## Works standalone or with the boilerplate
 
 The core — `CouponService`, the models and the `CouponRedeemed` event — is
 plain Laravel and runs in any application. The admin API auto-wires into the
-boilerplate's [Internal Admin](/docs/admin) stack when it detects it, and
+boilerplate's [Internal Admin](../../../docs/admin) stack when it detects it, and
 falls back to a Sanctum-authenticated stack on a vanilla Laravel app. See
-[Configuration](/packages/laravel-coupon/configuration).
+[Configuration](./configuration).
 
 ## What it does
 
@@ -58,8 +58,8 @@ falls back to a Sanctum-authenticated stack on a vanilla Laravel app. See
 
 ## Next steps
 
-- [Installation](/packages/laravel-coupon/installation)
-- [Configuration](/packages/laravel-coupon/configuration)
-- [The CouponService API](/packages/laravel-coupon/coupon-service)
-- [Redeeming & reacting to redemptions](/packages/laravel-coupon/redeeming)
-- [Admin API](/packages/laravel-coupon/admin-api)
+- [Installation](./installation)
+- [Configuration](./configuration)
+- [The CouponService API](./coupon-service)
+- [Redeeming & reacting to redemptions](./redeeming)
+- [Admin API](./admin-api)

@@ -50,5 +50,5 @@ assembling it by hand each time.
 | Observability | Append-only audit log with redaction and retention |
 | Delivery | Dockerised stack, Scribe API docs, PHPUnit, Pint |
 
-Continue to [Installation](/docs/installation) to get a local environment
+Continue to [Installation](./installation) to get a local environment
 running, then explore each module from the sidebar.

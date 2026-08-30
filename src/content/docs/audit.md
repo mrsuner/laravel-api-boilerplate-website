@@ -114,7 +114,7 @@ there is no `updated_at`.
 
 ## Exposing to admins
 
-The [Internal Admin Module](/docs/admin) ships read-only audit endpoints
+The [Internal Admin Module](./admin) ships read-only audit endpoints
 (`GET /internal/admin/v1/audit-logs` with `user_id` / `event` / date-range
 filters, plus per-user logs) built on these same scopes. For a custom surface,
 the model, scopes and polymorphic relation are ready — build your own

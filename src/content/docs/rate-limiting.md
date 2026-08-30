@@ -62,7 +62,7 @@ Content-Type: application/json
 { "message": "Too many requests." }
 ```
 
-The 429 envelope comes from the [API exception renderer](/docs/api-responses),
+The 429 envelope comes from the [API exception renderer](./api-responses),
 not the throttle middleware — so the message is configurable like any other
 response.
 

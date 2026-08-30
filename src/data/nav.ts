@@ -61,7 +61,7 @@ export const PACKAGES: PackageMeta[] = [
     name: 'laravel-api-keys',
     tagline: 'Developer API keys — prefix-routed, rotatable, rate-limited, layered over Sanctum.',
     badge: 'K',
-    repo: 'https://github.com/mrsuner/laravel-api-boilerplate-apikey',
+    repo: 'https://github.com/mrsuner/laravel-api-keys',
   },
 ];
 

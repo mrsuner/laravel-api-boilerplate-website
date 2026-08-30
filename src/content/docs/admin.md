@@ -97,7 +97,7 @@ requires the internal IP whitelist; the **Token** column shows whether an
 | GET | `/config` | admin | Read the whitelisted runtime config |
 | PUT | `/config` | admin | Toggle whitelisted runtime config |
 
-Responses use the standard [API envelope](/docs/api-responses); paginated
+Responses use the standard [API envelope](./api-responses); paginated
 lists return the `{ data, meta, links }` shape. The routes are throttled at
 60 requests/minute.
 
@@ -140,7 +140,7 @@ cannot ban another admin, cannot sync roles onto an admin, and cannot revoke
 your own `admin` role — each returns `422`. Role names are validated against
 the `roles` table; unknown roles are rejected (`422` on sync, `404` on
 assign). Roles and permissions themselves are read-only here — manage them
-via [RBAC](/docs/rbac) config and the seeder.
+via [RBAC](./rbac) config and the seeder.
 
 ## Health
 
@@ -173,7 +173,7 @@ explicitly-whitelisted keys are accepted — secrets are never exposed.
 
 ## Audit events
 
-Every mutating action records an event via the [audit log](/docs/audit):
+Every mutating action records an event via the [audit log](./audit):
 
 | Event | Trigger |
 |---|---|

@@ -57,7 +57,7 @@ OTP_CACHE_STORE=redis
 | POST | `/api/v1/auth/{app,web}/otp/verify` | No | Exchange the code for a token / session. |
 
 Both are throttled (`auth-otp_issue`, `auth-otp_verify`) — see
-[rate limiting](/docs/rate-limiting).
+[rate limiting](./rate-limiting).
 
 ## What a successful verify does
 

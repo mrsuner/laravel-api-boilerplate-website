@@ -99,4 +99,4 @@ Every event carries `key_prefix` in metadata. The `key_hash` and plaintext key
 are never logged. Events are emitted through the host's `audit_log()` helper when
 present, and are a no-op otherwise.
 
-Continue with [User API & tracking](/packages/laravel-api-keys/user-api).
+Continue with [User API & tracking](./user-api).

@@ -8,6 +8,7 @@ interface Props {
 const { pkg } = Astro.props;
 const meta = PACKAGES.find((p) => p.slug === pkg);
 const nav = await getPackageNav(pkg);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const current = Astro.url.pathname.replace(/\/$/, '');
 ---
 
@@ -22,7 +23,7 @@ const current = Astro.url.pathname.replace(/\/$/, '');
       </span>
       <span class="font-bold tracking-tight">{meta?.name ?? pkg}</span>
     </div>
-    <a href="/docs/introduction" class="mt-2 inline-block text-xs text-base-content/50 hover:text-primary">
+    <a href={`${base}/docs/introduction`} class="mt-2 inline-block text-xs text-base-content/50 hover:text-primary">
       ← Back to boilerplate docs
     </a>
   </div>
@@ -35,7 +36,7 @@ const current = Astro.url.pathname.replace(/\/$/, '');
         </p>
         <ul class="space-y-0.5">
           {group.items.map((item) => {
-            const href = `/packages/${item.slug}`;
+            const href = `${base}/packages/${item.slug}`;
             const active = current === href;
             return (
               <li>

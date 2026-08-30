@@ -10,7 +10,7 @@ order: 3
 Role-based access control via [Laratrust](https://laratrust.santigarcor.me/)
 v8. Defaults are seeded from `config/boilerplate.php`, new users are
 auto-assigned a role on registration, and the standard `role:` /
-`permission:` middleware integrate with the [JSON error envelope](/docs/api-responses).
+`permission:` middleware integrate with the [JSON error envelope](./api-responses).
 
 ## Out of the box
 

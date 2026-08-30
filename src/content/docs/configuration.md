@@ -52,9 +52,9 @@ outside config files; use `config('boilerplate....')` in application code.
 
 | To configure... | See |
 |---|---|
-| Login, register, tokens vs cookies | [Authentication](/docs/authentication) |
-| Passwordless email codes | [OTP](/docs/otp) |
-| Google / GitHub / etc. | [Social Auth](/docs/social-auth) |
-| Roles & permissions | [RBAC](/docs/rbac) |
-| Uploads & cleanup | [File Uploads](/docs/files) |
-| Audit log retention | [Audit Trail](/docs/audit) |
+| Login, register, tokens vs cookies | [Authentication](./authentication) |
+| Passwordless email codes | [OTP](./otp) |
+| Google / GitHub / etc. | [Social Auth](./social-auth) |
+| Roles & permissions | [RBAC](./rbac) |
+| Uploads & cleanup | [File Uploads](./files) |
+| Audit log retention | [Audit Trail](./audit) |

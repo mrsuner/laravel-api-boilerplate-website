@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { PACKAGES, getPackageNav } from '../../data/nav';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Pull each package's first doc page (for the primary CTA) and its section
 // groups (to preview what's documented).
@@ -11,7 +12,7 @@ const packages = await Promise.all(
     const first = flat[0];
     return {
       ...pkg,
-      href: first ? `/packages/${first.slug}` : `/packages/${pkg.slug}`,
+      href: first ? `${base}/packages/${first.slug}` : `${base}/packages/${pkg.slug}`,
       pageCount: flat.length,
       sections: nav.map((g) => g.section),
     };

@@ -109,4 +109,4 @@ It soft-deletes keys whose `expires_at` has passed, deletes usage logs older
 than `api-keys.usage_log.retention_days`, prints a summary, and emits an
 `api_key.expired` audit event.
 
-Continue with the [Admin API](/packages/laravel-api-keys/admin-api).
+Continue with the [Admin API](./admin-api).

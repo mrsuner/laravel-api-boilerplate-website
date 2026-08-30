@@ -1,14 +1,16 @@
 ---
 const { pathname } = Astro.url;
-const isHome = pathname === '/';
-const isDocs = pathname.startsWith('/docs');
-const isPackages = pathname.startsWith('/packages');
-const isChangelog = pathname.startsWith('/changelog');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = pathname.slice(base.length) || '/';
+const isHome = path === '/';
+const isDocs = path.startsWith('/docs');
+const isPackages = path.startsWith('/packages');
+const isChangelog = path.startsWith('/changelog');
 ---
 
 <header class="sticky top-0 z-50 border-b border-base-300 bg-base-100/85 backdrop-blur">
   <div class="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
-    <a href="/" class="flex items-center gap-2.5 font-bold tracking-tight">
+    <a href={`${base}/`} class="flex items-center gap-2.5 font-bold tracking-tight">
       <span class="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-content text-sm font-black">L</span>
       <span class="hidden sm:inline">Laravel API Boilerplate</span>
       <span class="sm:hidden">LAB</span>
@@ -16,23 +18,23 @@ const isChangelog = pathname.startsWith('/changelog');
 
     <nav class="ml-auto flex items-center gap-1 text-sm font-medium">
       <a
-        href="/"
+        href={`${base}/`}
         class={`btn btn-ghost btn-sm ${isHome ? 'text-primary' : ''}`}
       >Home</a>
       <a
-        href="/docs/introduction"
+        href={`${base}/docs/introduction`}
         class={`btn btn-ghost btn-sm ${isDocs ? 'text-primary' : ''}`}
       >Docs</a>
       <a
-        href="/packages"
+        href={`${base}/packages`}
         class={`btn btn-ghost btn-sm ${isPackages ? 'text-primary' : ''}`}
       >Packages</a>
       <a
-        href="/changelog"
+        href={`${base}/changelog`}
         class={`btn btn-ghost btn-sm hidden md:inline-flex ${isChangelog ? 'text-primary' : ''}`}
       >Changelog</a>
       <a
-        href="https://github.com"
+        href="https://github.com/mrsuner/laravel-api-boilerplate"
         target="_blank"
         rel="noreferrer"
         class="btn btn-sm btn-neutral"

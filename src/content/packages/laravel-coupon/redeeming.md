@@ -121,4 +121,4 @@ private function extendTrial(User $user, int $months): void
 
 > Emitting `coupon.redeemed` from **your** listener (rather than the package)
 > is deliberate: only your application knows the billing context — subscription
-> id, order id — worth recording in the [audit log](/docs/audit).
+> id, order id — worth recording in the [audit log](../../../docs/audit).

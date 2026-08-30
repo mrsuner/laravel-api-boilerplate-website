@@ -21,7 +21,7 @@ the bundled Docker stack. Both paths are first-class.
 
 ```bash
 # 1. Clone
-git clone <repository-url>
+git clone https://github.com/mrsuner/laravel-api-boilerplate.git
 cd laravel-api-boilerplate
 
 # 2. Install dependencies
@@ -67,7 +67,7 @@ make migrate   # first run only
 ```
 
 The app is then reachable at `http://localhost:8080`. See the
-[Docker guide](/docs/docker) for the full topology and production flow.
+[Docker guide](./docker) for the full topology and production flow.
 
 ## Verifying
 
@@ -77,5 +77,5 @@ php artisan scribe:generate  # build browsable API docs
 ./vendor/bin/pint         # fix code style
 ```
 
-Next: review [Configuration](/docs/configuration) to understand how every
+Next: review [Configuration](./configuration) to understand how every
 module is toggled from a single file.

@@ -60,7 +60,7 @@ public function rules(): array
 
 ## Validation errors
 
-Failures use the standard [response envelope](/docs/api-responses):
+Failures use the standard [response envelope](./api-responses):
 
 ```json
 {

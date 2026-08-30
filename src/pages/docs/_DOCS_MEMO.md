@@ -119,10 +119,8 @@ Source docs in the boilerplate that map 1:1 to the above:
 api-responses,rate-limiting,rbac,files,notifications,audit,docker}.md` plus
 `docs/devlog/2026-05-10-boilerplate-roadmap.md` → `roadmap.md`.
 
-## Known placeholders / TODO for later
+## Known TODO for later
 
-- `astro.config.mjs` → `site:` is a placeholder domain.
-- Navbar + Footer GitHub links point to `https://github.com` (placeholder).
 - No dark-mode toggle yet (DaisyUI `dark` theme is configured in
   `global.css` and respects `prefers-color-scheme`, but there's no manual
   switch).
@@ -138,4 +136,4 @@ api-responses,rate-limiting,rbac,files,notifications,audit,docker}.md` plus
   equals `title`.
 - Endpoint tables use Method / Endpoint / Auth / Description columns.
 - Config examples are real PHP/env snippets from the boilerplate, trimmed.
-- Prefer `/docs/<slug>` internal links (relative to site root).
+- Prefer `/docs/<slug>` internal links in Markdown; the build prefixes the GitHub Pages base path.

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const features = [
   {
     title: 'Dual Authentication',
@@ -105,16 +107,16 @@ const stack = [
           single config file. A self-hosted, scalable alternative to BaaS.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="/docs/introduction" class="btn btn-primary">Get Started</a>
+          <a href={`${base}/docs/introduction`} class="btn btn-primary">Get Started</a>
           <a
-            href="https://github.com"
+            href="https://github.com/mrsuner/laravel-api-boilerplate"
             target="_blank"
             rel="noreferrer"
             class="btn btn-outline">View on GitHub</a>
         </div>
         <div class="mt-8">
           <div class="mockup-code w-full max-w-xl bg-neutral text-neutral-content">
-            <pre data-prefix="$"><code>composer create-project laravel-api-boilerplate</code></pre>
+            <pre data-prefix="$"><code>composer create-project mrsuner/laravel-api-boilerplate "^1.0"</code></pre>
             <pre data-prefix="$"><code>composer run dev</code></pre>
           </div>
         </div>
@@ -202,7 +204,7 @@ const stack = [
               never depends on Stripe, Paddle or your billing models.
             </p>
             <div class="mt-1 flex flex-wrap gap-2">
-              <a href="/packages/laravel-coupon/introduction" class="btn btn-primary btn-sm">Read the docs</a>
+              <a href={`${base}/packages/laravel-coupon/introduction`} class="btn btn-primary btn-sm">Read the docs</a>
               <a
                 href="https://github.com/mrsuner/laravel-coupon"
                 target="_blank"
@@ -231,9 +233,9 @@ const stack = [
               stack, so your routes never change.
             </p>
             <div class="mt-1 flex flex-wrap gap-2">
-              <a href="/packages/laravel-api-keys/introduction" class="btn btn-primary btn-sm">Read the docs</a>
+              <a href={`${base}/packages/laravel-api-keys/introduction`} class="btn btn-primary btn-sm">Read the docs</a>
               <a
-                href="https://github.com/mrsuner/laravel-api-boilerplate-apikey"
+                href="https://github.com/mrsuner/laravel-api-keys"
                 target="_blank"
                 rel="noreferrer"
                 class="btn btn-outline btn-sm">GitHub</a>
@@ -254,11 +256,11 @@ const stack = [
             Clone, install, configure, migrate. Then read the per-module docs
             and start building your domain.
           </p>
-          <a href="/docs/installation" class="btn btn-primary mt-6">Installation guide</a>
+          <a href={`${base}/docs/installation`} class="btn btn-primary mt-6">Installation guide</a>
         </div>
         <div class="mockup-code bg-neutral text-neutral-content">
-          <pre data-prefix="1"><code>git clone &lt;repo&gt; && cd laravel-api-boilerplate</code></pre>
-          <pre data-prefix="2"><code>composer install && npm install</code></pre>
+          <pre data-prefix="1"><code>git clone https://github.com/mrsuner/laravel-api-boilerplate.git</code></pre>
+          <pre data-prefix="2"><code>cd laravel-api-boilerplate && composer install && npm ci</code></pre>
           <pre data-prefix="3"><code>cp .env.example .env && php artisan key:generate</code></pre>
           <pre data-prefix="4"><code>php artisan migrate --seed && composer run dev</code></pre>
         </div>
@@ -285,7 +287,7 @@ const stack = [
         <h2 class="text-2xl font-bold">Ready to build your API?</h2>
         <p class="mt-1 text-primary-content/80">Read the docs and ship today.</p>
       </div>
-      <a href="/docs/introduction" class="btn btn-neutral">Open the docs</a>
+      <a href={`${base}/docs/introduction`} class="btn btn-neutral">Open the docs</a>
     </div>
   </section>
 </BaseLayout>

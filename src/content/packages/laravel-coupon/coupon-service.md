@@ -20,7 +20,7 @@ $coupons = app(CouponService::class);
 ## generate()
 
 Creates and persists a single coupon code. The `code` is auto-generated when
-omitted (see [generation config](/packages/laravel-coupon/configuration)).
+omitted (see [generation config](./configuration)).
 
 ```php
 $coupon = $coupons->generate([
@@ -124,4 +124,4 @@ Map them in `bootstrap/app.php` for custom HTTP responses:
 })
 ```
 
-Next: [wire a redeem endpoint and react to redemptions](/packages/laravel-coupon/redeeming).
+Next: [wire a redeem endpoint and react to redemptions](./redeeming).

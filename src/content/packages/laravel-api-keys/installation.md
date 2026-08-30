@@ -58,4 +58,4 @@ to confirm the binding:
 $keys = app(\Mrsuner\ApiKeys\Services\ApiKeyService::class);
 ```
 
-Continue with [Configuration](/packages/laravel-api-keys/configuration).
+Continue with [Configuration](./configuration).

@@ -89,6 +89,6 @@ A key authenticates only when **all** of the following hold (`ApiKey::isUsable()
 
 The "or in the future" clause is what powers the rotation overlap window: a key
 whose `revoked_at` is set to a future timestamp is still usable until then. See
-[The ApiKeyService API](/packages/laravel-api-keys/api-key-service).
+[The ApiKeyService API](./api-key-service).
 
-Continue with [The ApiKeyService API](/packages/laravel-api-keys/api-key-service).
+Continue with [The ApiKeyService API](./api-key-service).

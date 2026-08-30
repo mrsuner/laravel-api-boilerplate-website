@@ -51,7 +51,7 @@ without ripping code out.
 - Soft deletes & restore endpoints
 - i18n scaffolding (`en`, `zh_TW`) with locale detection middleware
 - Public `/health` endpoint (an admin-scoped one already ships with the
-  [admin module](/docs/admin))
+  [admin module](./admin))
 - CORS hardening, request-id middleware, request/response logging
 
 ## Planned — Tier 3 & 4 (DX & docs)

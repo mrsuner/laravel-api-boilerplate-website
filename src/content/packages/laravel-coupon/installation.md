@@ -55,4 +55,4 @@ to confirm the binding:
 $coupons = app(\Mrsuner\Coupon\Services\CouponService::class);
 ```
 
-Continue with [Configuration](/packages/laravel-coupon/configuration).
+Continue with [Configuration](./configuration).
