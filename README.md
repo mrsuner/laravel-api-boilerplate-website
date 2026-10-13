@@ -4,7 +4,7 @@ Marketing and documentation site for the **[Laravel API Boilerplate](../laravel-
 
 Built with **Astro 7**, **Tailwind CSS v4**, and **DaisyUI v5**. The landing page sells the boilerplate; the `/docs` section is a sidebar-driven documentation system rendered from Markdown.
 
-Production: <https://mrsuner.github.io/laravel-api-boilerplate-website/>
+Production: <https://laravel-api-boilerplate.soft.pw/>
 
 ## Tech stack
 

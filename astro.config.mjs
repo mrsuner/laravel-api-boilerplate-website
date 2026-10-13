@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://mrsuner.github.io',
-  base: '/laravel-api-boilerplate-website',
+  site: 'https://laravel-api-boilerplate.soft.pw',
   vite: {
     plugins: [tailwindcss()],
   },

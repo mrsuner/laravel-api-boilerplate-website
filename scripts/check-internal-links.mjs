@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { extname, join, relative, resolve } from 'node:path';
 
 const outputDirectory = resolve('dist');
-const basePath = '/laravel-api-boilerplate-website';
+const basePath = '';
 const htmlFiles = [];
 
 function collectHtmlFiles(directory) {
@@ -33,7 +33,7 @@ for (const htmlFile of htmlFiles) {
   const links = html.matchAll(/href="([^"]+)"/g);
 
   for (const [, href] of links) {
-    if (!href.startsWith(basePath)) {
+    if (!href.startsWith(`${basePath}/`) || href.startsWith('//')) {
       continue;
     }
 
