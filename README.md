@@ -118,4 +118,4 @@ The output in `dist/` is fully static. Pushes to `main` build, validate, and dep
 
 ## Node.js
 
-Use Node.js 22.23.4 or newer. Run `nvm use` to select the repository version before `npm ci`.
+Use Node.js 22.23.5 or newer. Run `nvm use` to select the repository version before `npm ci`.
